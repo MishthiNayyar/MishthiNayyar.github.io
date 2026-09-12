@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>V8 Engine — Mishthi Nayyar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <a href="index.html">← Back to Portfolio</a>
+
+    <h1>V8 Engine Design & Assembly</h1>
+    <p>A complete, multi-part CAD model of a V8 engine built from the ground up in SolidWorks.</p>
+
+    <img src="v8-1.jpg" alt="V8 engine CAD render" style="max-width: 100%; border-radius: 10px; margin: 20px 0;">
+
+    <h3>Motion Study</h3>
+    <p>A kinematic animation of the piston-crankshaft mechanism, visualizing how rotational motion from the crankshaft
+        drives the pistons through their full cycle.</p>
+    <video autoplay loop muted playsinline style="max-width: 100%; border-radius: 10px; margin: 20px 0;">
+        <source src="v8-motion.mp4" type="video/mp4">
+    </video>
+
+    <h3>Overview</h3>
+    <p>This project started as a way to push my SolidWorks skills beyond simple parts and into a complex, multi-body
+        assembly. A V8 engine felt like the right challenge since it has real mechanical relationships between parts
+        (pistons, connecting rods, crankshaft, valves, cam gears) rather than just static geometry, so I had to
+        think
+        carefully about how components actually interact, not just how they look. Modeling and assembling every
+        major
+        component from scratch also meant working through fit, clearance, and mate relationships across dozens of
+        interconnected parts.
+    <p>
+
+    <h3>Design Process</h3>
+    <p>I approached this project by modeling each component individually first, building out parts like the
+        crankshaft,
+        pistons, connecting rods, valves, and cam gears one at a time before bringing everything together in a
+        single
+        assembly. The biggest challenge wasn't any single part, it was managing complexity once everything came
+        together. With dozens of interconnected components (8 piston assemblies alone, plus valves, gears, and
+        shafts),
+        keeping the assembly organized and making sure mates didn't conflict as more parts were added took real
+        attention.
+    <p>
+    <p>The trickiest fit was getting the pistons and connecting rods to align correctly with the crankshaft. Since
+        these parts all needed to move together (and later drive the motion study), even small dimensional
+        mismatches
+        showed up as interference or awkward mate constraints. This took some trial and error, adjusting dimensions
+        on
+        the connecting rods and piston pin locations until the geometry lined up cleanly across all 8 cylinders and
+        the
+        motion looked mechanically correct rather than just visually assembled.
+    <p>
+
+    <h3>Exploded View</h3>
+    <img src="v8-exploded.png" alt="V8 engine exploded view"
+        style="max-width: 100%; border-radius: 10px; margin: 20px 0;">
+
+    <h3>Next Steps</h3>
+    <ul>
+        <li>Run a stress analysis on the connecting rods and crankshaft to evaluate the design under simulated load
+        </li>
+        <li>Explore lighter material alternatives (aluminum vs. cast iron) to understand the trade-off between
+            weight
+            reduction and strength</li>
+        <li>Create detailed 2D manufacturing drawings with proper tolerancing for key components</li>
+    </ul>
+
+    <p><strong>Tools Used</strong> — SolidWorks</p>
+
+</body>
+
+</html>

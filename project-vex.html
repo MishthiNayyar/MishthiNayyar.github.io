@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>VEX Checker Sorter — Mishthi Nayyar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <a href="index.html">← Back to Portfolio</a>
+
+    <h1>Checker Sorter Robot</h1>
+    <p>A VEX IQ robot built for MTE 100/121, designed to autonomously drive a table, detect checker pieces, sort them by
+        colour, and deposit them into containers.</p>
+
+    <div class="wide-section">
+        <h3>Overview</h3>
+        <p>Built as a 4-person team project, this VEX robot autonomously drives a table, detects checker pieces, sorts
+            them by colour, and deposits them into containers. It uses four motors to control driving, arm rotation, and
+            the claw, along with a distance sensor, optical sensor, motor encoders, and a touch sensor to navigate and
+            detect pieces.</p>
+        <p>My contributions were the claw control functions (closeClaw and openClaw), the team contract, and the project
+            presentations. The overview below covers the full project, with more detail on my specific role further
+            down.</p>
+    </div>
+
+    <img src="vex-1.jpg" alt="Completed checker sorter robot"
+        style="max-width: 100%; border-radius: 10px; margin: 20px 0;">
+
+    <div class="wide-section">
+        <h3>Design Evolution</h3>
+        <p>The project originally targeted collecting chess pieces using a bumper sensor and rotating arm. After
+            testing, the team found chess pieces introduced too much variability in size and shape, and the bumper
+            sensor wasn't sensitive enough to detect contact without knocking pieces over. The target was changed to
+            checker pieces instead, since their flat, circular, consistent shape made them far more reliable to detect
+            and grip.</p>
+        <p>Early concepts explored a shovel-and-slide design and a rolling belt intake system, both aiming to collect
+            pieces in bulk. The shovel struggled to consistently collect pieces near its edges, and the belt intake
+            would have required at least five motors, more than the project allowed. The team ultimately returned to an
+            arm-and-claw design, rotating front to back instead of left to right, which kept the claw closer to the
+            ground for reliable pickup.</p>
+        <div class="image-row">
+            <img src="4-3.png" alt="Initial design sketch">
+            <img src="4-4.png" alt="Arm movement redesign sketch">
+            <img src="2-4.png" alt="Rolling intake concept sketch">
+        </div>
+    </div>
+
+    <div class="wide-section">
+        <h3>Mechanical Design</h3>
+        <p>The chassis used a two-wheel drive configuration with omni wheels at the back for stability, especially
+            important since the arm swung backward to deposit pieces. The drive motors were mounted vertically at the
+            front to conserve space, with the VEX IQ Brain positioned directly behind them so it wouldn't obstruct the
+            arm's rotation.</p>
+        <p>The arm was powered by a vertically mounted motor connected to a central shaft. Since the claw and sensors
+            combined were heavier than expected, an elastic band was added to assist the motor in lifting the arm,
+            preventing it from stalling partway through its motion.</p>
+        <div class="image-row">
+            <img src="4-2.png" alt="Chassis configuration sketch">
+            <img src="4-6.png" alt="Arm mechanism with motor and elastic band">
+        </div>
+    </div>
+
+    <div class="wide-section">
+        <h3>Sensor & Claw Design</h3>
+        <p>The distance sensor was mounted just above the claw to detect fluctuations in ground distance, signalling
+            when a piece was in the claw's path. The colour sensor, mounted slightly off-centre, used hue and brightness
+            values (rather than simple colour categories) to distinguish the checker pieces, since the pieces were
+            closer to dark brown and off-white than true black and white.</p>
+        <p>The claw went through two design iterations. The first version was longer and heavier, which caused
+            instability and unreliable sensor readings. The final version was shorter, with a notch that let the VEX
+            attachment fit securely without tape or glue, and a snug circular indent sized to reduce the chance of a
+            piece slipping out.</p>
+        <div class="image-row">
+            <img src="4-8.png" alt="Distance and colour sensor placement above the claw">
+            <img src="4-9.png" alt="First claw design, CAD and printed piece">
+            <img src="4-11.png" alt="Final claw design, CAD and printed piece">
+        </div>
+    </div>
+
+    <div class="wide-section">
+        <h3>Box Design</h3>
+        <p>The container design also went through several iterations. The original open rectangular box let pieces
+            bounce sideways off the rim and miss the containers entirely. A second prototype added a higher,
+            forward-sloped back wall to guide pieces in, which helped but still let pieces bounce off the sides. The
+            final design added 45-degree side flaps that funneled pieces inward, reducing missed drops to just 3 out of
+            80 pieces across testing.</p>
+        <img src="4-14.png" alt="Evolution of the container box design"
+            style="max-width: 100%; border-radius: 10px; margin: 20px 0;">
+    </div>
+
+    <div class="wide-section">
+        <h3>My Role: Claw Control Functions</h3>
+        <p>I wrote the closeClaw and openClaw functions that controlled the robot's gripping mechanism. closeClaw reset
+            the claw motor's position and drove it in reverse, applying continuous force to hold a piece securely until
+            it was deliberately released. openClaw reset the motor's position, drove it forward, and waited until it had
+            rotated 30 degrees before stopping, ensuring the claw opened just enough to release a piece without
+            over-rotating.</p>
+        <p>Beyond the code, I also wrote the team contract at the start of the project and put together the
+            presentations used for the formal project reviews.</p>
+    </div>
+
+    <div class="wide-section">
+        <h3>Software Design</h3>
+        <p>The full software was broken into modular functions handling movement, sensing, and sorting separately, which
+            made the main program easier to read, test, and debug independently before combining everything. One key
+            design decision was checking the piece's colour a second time immediately before dropping it, to confirm it
+            hadn't fallen out of the claw during the arm's rotation. The piece counter was only incremented if this
+            second check passed, keeping the final count accurate.</p>
+        <img src="flowchart.jpg" alt="Flowchart of the programmed robot logic"
+            style="max-width: 100%; border-radius: 10px; margin: 20px 0;">
+    </div>
+
+    <div class="wide-section">
+        <h3>Results</h3>
+        <p>The robot met most of its design criteria, successfully detecting and sorting checker pieces with over 90%
+            accuracy after refining the box design and sensor logic. It reliably handled unexpected events, such as a
+            piece being knocked out of the claw mid-rotation, without miscounting.</p>
+        <p>A couple of constraints weren't fully met: the robot's turning accuracy occasionally deviated by 6-12 degrees
+            instead of the target 5-degree tolerance, and on a table sized exactly to the robot's operating area, its
+            body length occasionally caused it to tip during rotation.</p>
+        <div class="image-row">
+            <img src="6-1.png" alt="Robot correctly detecting a piece missed by the distance sensor">
+            <img src="6-2.png" alt="Robot over-rotating during a turn">
+        </div>
+    </div>
+
+    <div class="wide-section">
+        <h3>What I'd Improve Next Time</h3>
+        <ul>
+            <li>Implement a PID control system for turning to reduce rotational deviation, rather than relying on a
+                fixed-angle turn</li>
+            <li>Redesign the chassis to be more compact, reducing the robot's footprint and improving stability during
+                turns on smaller tables</li>
+            <li>Explore adding more motors to enable collecting and sorting pieces while driving, instead of stopping
+                for each piece, to significantly speed up the full sorting process</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
