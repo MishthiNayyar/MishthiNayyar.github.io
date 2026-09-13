@@ -11,11 +11,72 @@
     <a href="index.html">← Back to Portfolio</a>
 
     <h1>RC Car</h1>
-    <p>Add detail here about the CAD design and your plans to build/print it.</p>
+    <p>A small 3D printed car controlled by phone through the HC-05 bluetooth module.</p>
 
     <img src="rccar-1.jpg" alt="RC car CAD render" style="max-width: 100%; border-radius: 10px; margin: 20px 0;">
 
-    <p>Add more description or additional images here.</p>
+    <div class="wide-section">
+        <h3>Planned Materials for 3D Printing</h3>
+        <ul>
+            <li><strong>Body and bottom plate:</strong> PETG, chosen for its higher shock absorbency compared to more
+                brittle filaments</li>
+            <li><strong>Tires:</strong> TPU, with deepened tire grooves to compensate for TPU's naturally lower
+                friction.
+                Deeper grooves should increase grip despite the material's smoother surface characteristics</li>
+            <li><strong>Wheel hubs:</strong> PLA, since this component doesn't experience significant impact or stress,
+                making a more rigid, less shock-absorbent material acceptable here</li>
+        </ul>
+    </div>
+
+    <div class="wide-section">
+        <h3>Electronics</h3>
+        <ul>
+            <li>Arduino (microcontroller)</li>
+            <li>HC-05 Bluetooth module, for phone-based control</li>
+            <li>18650 lithium battery pack</li>
+            <li>Breadboard</li>
+            <li>4x TT gear motors</li>
+            <li>2x L298N motor driver modules</li>
+        </ul>
+    </div>
+
+    <div class="wide-section">
+        <h3>Design Details</h3>
+        <p>One decision I'm happy with is integrating the motor holders directly into the bottom plate, rather than
+            designing them as a separate part to attach later. This reduces the number of individual components and
+            fasteners needed, and keeps the motor mounting more rigid and secure as part of the main structure.</p>
+        <div class="image-row">
+            <img src="motors.png" alt="Bottom plate with integrated motor holders">
+            <img src="wheel.png" alt="TPU tires with deepened tread grooves">
+        </div>
+        <div class="image-row" style="margin-top: 20px;">
+            <img src="bottomplate.png" alt="Wheel hub design">
+            <img src="bottomplate1.png" alt="Full CAD assembly">
+        </div>
+        <div class="video-grid" style="margin-top: 20px;">
+            <img src="body.png" alt="Additional design detail"
+                style="width: calc(50% - 10px); min-width: 250px; border-radius: 10px;">
+        </div>
+    </div>
+
+    <div class="wide-section">
+        <h3>Current Status</h3>
+        <p>The design is fully modeled in CAD and ready for printing. The next stage is printing the components in their
+            planned materials, assembling the electronics, and testing the base drive and Bluetooth control before
+            adding any additional sensors.</p>
+    </div>
+
+    <div class="wide-section">
+        <h3>Next Steps</h3>
+        <ul>
+            <li>3D print all components (PETG body/plate, TPU tires, PLA wheel hubs) and complete assembly</li>
+            <li>Wire and test the base electronics: Arduino, motor drivers, and Bluetooth control from phone</li>
+            <li>Add an ultrasonic sensor for basic obstacle avoidance, allowing the car to detect and react to objects
+                in its path</li>
+            <li>As a stretch goal, add IR line-following sensors to give the car a second, path-based autonomous mode
+                alongside obstacle avoidance</li>
+        </ul>
+    </div>
 
 </body>
 
